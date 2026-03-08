@@ -3,6 +3,7 @@
 ![SMARTbrain Auditor](assets/banner.png)
 
 [![Creator](https://img.shields.io/badge/Creator-SMARTbrain%20Activity-blue)](https://www.smartbrainactivity.ai)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A universal, dependency-free Node.js tool to statically audit AI Skills and local agents (like those used in Claude, Cursor, Antigravity) for malicious patterns. 
 
