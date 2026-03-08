@@ -1,0 +1,60 @@
+{
+    "javascript": [
+        {
+            "regex": "eval\\s*\\(",
+            "name": "Uso de eval() detectado (Arbitrary Code Execution)"
+        },
+        {
+            "regex": "setTimeout\\s*\\(\\s*['\"]",
+            "name": "setTimeout con Strings (Equivalente a eval)"
+        },
+        {
+            "regex": "setInterval\\s*\\(\\s*['\"]",
+            "name": "setInterval con Strings (Equivalente a eval)"
+        },
+        {
+            "regex": "require\\s*\\(\\s*['\"](?:http|https)",
+            "name": "Requisición HTTP directa detectada (Riesgo de descarga externa)"
+        },
+        {
+            "regex": "child_process.*(rm\\s+-rf|del\\s+/f|format)",
+            "name": "Comandos destructivos en shell detectados (rm -rf, format, del)"
+        }
+    ],
+    "python": [
+        {
+            "regex": "eval\\s*\\(",
+            "name": "Uso de eval() en Python"
+        },
+        {
+            "regex": "exec\\s*\\(",
+            "name": "Uso de exec() en Python (Arbitrary Code Execution)"
+        },
+        {
+            "regex": "os\\.(system|popen).*(rm\\s+-rf|del\\s+/f)",
+            "name": "Comandos destructivos detectados en os.system"
+        },
+        {
+            "regex": "subprocess\\.call.*(rm\\s+-rf|del\\s+/f)",
+            "name": "Comandos destructivos detectados en subprocess"
+        }
+    ],
+    "shell": [
+        {
+            "regex": "rm\\s+-rf\\s+/",
+            "name": "Borrado de disco duro silencioso (rm -rf /)"
+        },
+        {
+            "regex": "mkfs",
+            "name": "Formateo de partición detectado"
+        },
+        {
+            "regex": "wget.*\\|\\s*bash",
+            "name": "Descarga y ejecución de payload en memoria"
+        },
+        {
+            "regex": "curl.*\\|\\s*bash",
+            "name": "Descarga y ejecución de payload en memoria"
+        }
+    ]
+}
