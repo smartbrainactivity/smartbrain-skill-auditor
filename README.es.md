@@ -6,6 +6,8 @@
 
 Una herramienta universal en Node.js, sin dependencias externas, para auditar de forma estática Skills de IA y agentes locales (como los usados en Claude, Cursor, Antigravity) en busca de patrones maliciosos.
 
+[🇬🇧 Read in English](README.md)
+
 Antes de ejecutar directorios descargados llenos de archivos `.js`, `.py` o `.sh`, escanéalos matemáticamente para asegurar que no contienen código peligroso (uso oculto de `eval()`, peticiones HTTP maliciosas o borrados estilo `rm -rf`).
 
 ## Método 1: Usar el Repositorio Oficial (Plug & Play)

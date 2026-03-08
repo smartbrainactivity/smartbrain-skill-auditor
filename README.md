@@ -6,6 +6,8 @@
 
 A universal, dependency-free Node.js tool to statically audit AI Skills and local agents (like those used in Claude, Cursor, Antigravity) for malicious patterns. 
 
+[🇪🇸 Leer en Español](README.es.md)
+
 Before running downloaded skills full of `.js`, `.py`, or `.sh` files, scan them to ensure they don't contain harmful code (like hidden `eval()`, malicious HTTP requests, or destructive `rm -rf` commands).
 
 ## Method 1: Use the Official Plug & Play Repository
