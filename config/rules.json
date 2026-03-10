@@ -2,59 +2,239 @@
     "javascript": [
         {
             "regex": "eval\\s*\\(",
-            "name": "Uso de eval() detectado (Arbitrary Code Execution)"
+            "name": "Uso de eval() detectado (Arbitrary Code Execution)",
+            "severity": "critical"
+        },
+        {
+            "regex": "new\\s+Function\\s*\\(",
+            "name": "Constructor Function() detectado (Equivalente a eval)",
+            "severity": "critical"
         },
         {
             "regex": "setTimeout\\s*\\(\\s*['\"]",
-            "name": "setTimeout con Strings (Equivalente a eval)"
+            "name": "setTimeout con Strings (Equivalente a eval)",
+            "severity": "high"
         },
         {
             "regex": "setInterval\\s*\\(\\s*['\"]",
-            "name": "setInterval con Strings (Equivalente a eval)"
+            "name": "setInterval con Strings (Equivalente a eval)",
+            "severity": "high"
         },
         {
-            "regex": "require\\s*\\(\\s*['\"](?:http|https)",
-            "name": "Requisición HTTP directa detectada (Riesgo de descarga externa)"
+            "regex": "vm\\.(runInNewContext|runInThisContext|compileFunction)",
+            "name": "Ejecución dinámica mediante módulo vm (Sandbox Escape Risk)",
+            "severity": "critical"
+        },
+        {
+            "regex": "import\\s*\\(\\s*['\"]https?://",
+            "name": "import() dinámico desde URL remota (Remote Code Loading)",
+            "severity": "critical"
+        },
+        {
+            "regex": "require\\s*\\(\\s*['\"](?:http|https)['\"]\\s*\\)",
+            "name": "Módulo HTTP/HTTPS importado (Posible exfiltración de datos)",
+            "severity": "high"
+        },
+        {
+            "regex": "(?:^|[^.])\\bfetch\\s*\\(",
+            "name": "Uso de fetch() detectado (Petición de red oculta)",
+            "severity": "high"
+        },
+        {
+            "regex": "require\\s*\\(\\s*['\"]axios['\"]\\s*\\)",
+            "name": "Librería axios importada (Peticiones HTTP ocultas)",
+            "severity": "high"
+        },
+        {
+            "regex": "new\\s+XMLHttpRequest",
+            "name": "XMLHttpRequest detectado (Comunicación de red legacy)",
+            "severity": "high"
+        },
+        {
+            "regex": "new\\s+WebSocket\\s*\\(",
+            "name": "WebSocket detectado (Comunicación oculta en tiempo real)",
+            "severity": "high"
         },
         {
             "regex": "child_process.*(rm\\s+-rf|del\\s+/f|format)",
-            "name": "Comandos destructivos en shell detectados (rm -rf, format, del)"
+            "name": "Comandos destructivos en shell detectados (rm -rf, format, del)",
+            "severity": "critical"
+        },
+        {
+            "regex": "require\\s*\\(\\s*['\"]child_process['\"]\\s*\\)",
+            "name": "Módulo child_process importado (Ejecución de comandos del sistema)",
+            "severity": "medium"
+        },
+        {
+            "regex": "\\batob\\s*\\(",
+            "name": "atob() detectado (Decodificación Base64 de posible payload)",
+            "severity": "medium"
+        },
+        {
+            "regex": "Buffer\\.from\\s*\\([^)]*['\"]base64['\"]",
+            "name": "Buffer.from con Base64 detectado (Decodificación de payload ofuscado)",
+            "severity": "medium"
+        },
+        {
+            "regex": "(sk-[a-zA-Z0-9]{20,}|ghp_[a-zA-Z0-9]{36}|AKIA[A-Z0-9]{16})",
+            "name": "Posible API Key / Token hardcodeado detectado (Credenciales expuestas)",
+            "severity": "critical"
+        },
+        {
+            "regex": "['\"](?:password|secret|api_key|apikey|access_token)['\"\\s]*[:=]\\s*['\"][^'\"]{8,}['\"]",
+            "name": "Contraseña o secreto hardcodeado en string (Credential Leak)",
+            "severity": "critical"
         }
     ],
     "python": [
         {
             "regex": "eval\\s*\\(",
-            "name": "Uso de eval() en Python"
+            "name": "Uso de eval() en Python (Arbitrary Code Execution)",
+            "severity": "critical"
         },
         {
             "regex": "exec\\s*\\(",
-            "name": "Uso de exec() en Python (Arbitrary Code Execution)"
+            "name": "Uso de exec() en Python (Arbitrary Code Execution)",
+            "severity": "critical"
+        },
+        {
+            "regex": "compile\\s*\\(",
+            "name": "Uso de compile() en Python (Compilación dinámica de código)",
+            "severity": "high"
+        },
+        {
+            "regex": "__import__\\s*\\(",
+            "name": "__import__() detectado (Importación dinámica sospechosa)",
+            "severity": "high"
+        },
+        {
+            "regex": "importlib\\.(import_module|__import__)",
+            "name": "importlib detectado (Carga dinámica de módulos)",
+            "severity": "high"
+        },
+        {
+            "regex": "pickle\\.(loads|load)\\s*\\(",
+            "name": "pickle.loads() detectado (Deserialización insegura → RCE)",
+            "severity": "critical"
+        },
+        {
+            "regex": "marshal\\.(loads|load)\\s*\\(",
+            "name": "marshal.loads() detectado (Deserialización insegura → RCE)",
+            "severity": "critical"
+        },
+        {
+            "regex": "base64\\.b64decode",
+            "name": "base64.b64decode detectado (Decodificación de payload ofuscado)",
+            "severity": "medium"
         },
         {
             "regex": "os\\.(system|popen).*(rm\\s+-rf|del\\s+/f)",
-            "name": "Comandos destructivos detectados en os.system"
+            "name": "Comandos destructivos detectados en os.system",
+            "severity": "critical"
         },
         {
-            "regex": "subprocess\\.call.*(rm\\s+-rf|del\\s+/f)",
-            "name": "Comandos destructivos detectados en subprocess"
+            "regex": "subprocess\\.(?:call|run|Popen).*(rm\\s+-rf|del\\s+/f)",
+            "name": "Comandos destructivos detectados en subprocess",
+            "severity": "critical"
+        },
+        {
+            "regex": "(sk-[a-zA-Z0-9]{20,}|ghp_[a-zA-Z0-9]{36}|AKIA[A-Z0-9]{16})",
+            "name": "Posible API Key / Token hardcodeado en Python",
+            "severity": "critical"
         }
     ],
     "shell": [
         {
             "regex": "rm\\s+-rf\\s+/",
-            "name": "Borrado de disco duro silencioso (rm -rf /)"
+            "name": "Borrado de disco duro silencioso (rm -rf /)",
+            "severity": "critical"
         },
         {
             "regex": "mkfs",
-            "name": "Formateo de partición detectado"
+            "name": "Formateo de partición detectado",
+            "severity": "critical"
         },
         {
             "regex": "wget.*\\|\\s*bash",
-            "name": "Descarga y ejecución de payload en memoria"
+            "name": "Descarga y ejecución de payload en memoria (wget | bash)",
+            "severity": "critical"
         },
         {
             "regex": "curl.*\\|\\s*bash",
-            "name": "Descarga y ejecución de payload en memoria"
+            "name": "Descarga y ejecución de payload en memoria (curl | bash)",
+            "severity": "critical"
+        },
+        {
+            "regex": "base64\\s+-d\\s*\\|\\s*(ba)?sh",
+            "name": "Decodificación Base64 con ejecución directa en shell",
+            "severity": "critical"
+        },
+        {
+            "regex": "dd\\s+if=",
+            "name": "Escritura directa en disco mediante dd (Data Destruction Risk)",
+            "severity": "critical"
+        },
+        {
+            "regex": "chmod\\s+777",
+            "name": "Permisos inseguros masivos (chmod 777)",
+            "severity": "high"
+        },
+        {
+            "regex": "nc\\s+.*-e",
+            "name": "Reverse shell con netcat detectado (nc -e)",
+            "severity": "critical"
+        }
+    ],
+    "markdown": [
+        {
+            "regex": "ignore.*previous.*instructions",
+            "name": "🔴 GHOST PROMPT: Sobreescritura de instrucciones previas (Prompt Injection)",
+            "severity": "critical"
+        },
+        {
+            "regex": "forget.*(?:everything|all|instructions|rules)",
+            "name": "🔴 GHOST PROMPT: Orden de olvidar instrucciones del sistema",
+            "severity": "critical"
+        },
+        {
+            "regex": "(?:do\\s+not|don't|never)\\s+(?:tell|reveal|show|disclose).*(?:user|human|person)",
+            "name": "🔴 GHOST PROMPT: Ocultación de información al usuario",
+            "severity": "critical"
+        },
+        {
+            "regex": "(?:send|exfiltrate|upload|post|transmit).*(?:data|info|context|conversation|history).*(?:to|https?://)",
+            "name": "🔴 GHOST PROMPT: Exfiltración de datos del usuario",
+            "severity": "critical"
+        },
+        {
+            "regex": "(?:override|bypass|disable|ignore).*(?:safety|security|guardrail|restriction|filter|policy)",
+            "name": "🔴 GHOST PROMPT: Evasión de seguridad del agente",
+            "severity": "critical"
+        },
+        {
+            "regex": "(?:always|must|you\\s+should|you\\s+will|you\\s+shall|make\\s+sure\\s+to)\\s+(?:execute|run).*(?:command|terminal|shell|script|code).*(?:silent|hidden|without.*asking|without.*permission|without.*consent)",
+            "name": "🔴 GHOST PROMPT: Ejecución silenciosa de comandos sin consentimiento",
+            "severity": "critical"
+        },
+        {
+            "regex": "run_command.*SafeToAutoRun.*true",
+            "name": "🔴 GHOST PROMPT: Forzar auto-ejecución de comandos sin aprobación",
+            "severity": "critical"
+        },
+        {
+            "regex": "you\\s+are\\s+now\\s+(?:a|an|the)\\s+(?!.*skill)",
+            "name": "🟡 GHOST PROMPT: Posible suplantación de identidad del agente",
+            "severity": "high"
+        },
+        {
+            "regex": "<!--\\s*(?:inject|override|ignore|hidden|secret|payload)",
+            "name": "🔴 GHOST PROMPT: Instrucción maliciosa dentro de comentario HTML oculto",
+            "severity": "critical"
+        },
+        {
+            "regex": "[\\u200B\\u200C\\u200D\\uFEFF\\u00AD]",
+            "name": "🟡 GHOST PROMPT: Caracteres zero-width / invisibles detectados (Ofuscación visual)",
+            "severity": "high"
         }
     ]
 }
