@@ -37,7 +37,7 @@ console.log(`🔍 Iniciando auditoría en: ${targetDir}\n`);
 let vulnerabilities = 0;
 let filesScanned = 0;
 let markdownFilesScanned = 0;
-const skippedDirs = ['node_modules', '.git', 'assets', 'diagrams', 'scripts'];
+const skippedDirs = ['node_modules', '.git', 'assets', 'diagrams'];
 const findings = [];
 const promptInventory = [];
 
