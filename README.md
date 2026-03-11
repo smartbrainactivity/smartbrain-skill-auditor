@@ -1,9 +1,14 @@
-# AI Skill Auditor v2.0
+# 🛡️ AI Skill Auditor v2.0 — for Antigravity · Claude Code · Gemini CLI · Cursor
 
 ![SMARTbrain Auditor](assets/banner.png)
 
 [![Creator](https://img.shields.io/badge/Creator-SMARTbrain%20Activity-blue)](https://www.smartbrainactivity.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Antigravity Skill](https://img.shields.io/badge/Antigravity-Skill-black?logo=google&logoColor=white)
+![Claude Code](https://img.shields.io/badge/Claude_Code-Compatible-blue?logo=anthropic&logoColor=white)
+![Gemini CLI](https://img.shields.io/badge/Gemini_CLI-Compatible-4285F4?logo=google&logoColor=white)
+![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-green)
+![License MIT](https://img.shields.io/badge/License-MIT-yellow)
 
 A universal, dependency-free Node.js tool to statically audit AI Skills and local agents (like those used in Claude, Cursor, Antigravity) for malicious patterns and hidden **Ghost Prompts**.
 

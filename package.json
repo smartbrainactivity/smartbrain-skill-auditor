@@ -1,0 +1,27 @@
+{
+  "name": "smartbrain-skill-auditor",
+  "version": "2.0.0",
+  "description": "Zero-dependency Node.js CLI to audit AI Skills for Antigravity, Claude Code, Gemini CLI & Cursor. Detects malicious code, prompt injection & ghost prompts.",
+  "keywords": [
+    "antigravity",
+    "claude-code",
+    "gemini-cli",
+    "ai-skills",
+    "skill-auditor",
+    "ai-security",
+    "prompt-injection",
+    "ghost-prompt",
+    "static-analysis",
+    "cybersecurity",
+    "cursor",
+    "copilot",
+    "supply-chain-security"
+  ],
+  "license": "MIT",
+  "author": "SMARTbrain Activity",
+  "homepage": "https://github.com/smartbrainactivity/smartbrain-skill-auditor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smartbrainactivity/smartbrain-skill-auditor.git"
+  }
+}
