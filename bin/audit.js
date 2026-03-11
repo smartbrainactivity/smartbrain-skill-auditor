@@ -37,7 +37,7 @@ console.log(`🔍 Iniciando auditoría en: ${targetDir}\n`);
 let vulnerabilities = 0;
 let filesScanned = 0;
 let markdownFilesScanned = 0;
-const skippedDirs = ['node_modules', '.git', 'assets', 'diagrams'];
+const skippedDirs = ['node_modules', '.git', 'assets', 'diagrams', 'scripts'];
 const findings = [];
 const promptInventory = [];
 
@@ -155,12 +155,15 @@ function scanFile(filePath) {
 // ---------------------------------------------------------------------------
 function walkDir(currentDirPath) {
     fs.readdirSync(currentDirPath).forEach(name => {
+        // Omitir cualquier directorio que esté en la lista de ignorados
+        if (skippedDirs.includes(name)) return;
+
         const filePath = path.join(currentDirPath, name);
         const stat = fs.statSync(filePath);
 
         if (stat.isFile()) {
             scanFile(filePath);
-        } else if (stat.isDirectory() && !skippedDirs.includes(name)) {
+        } else if (stat.isDirectory()) {
             walkDir(filePath);
         }
     });
