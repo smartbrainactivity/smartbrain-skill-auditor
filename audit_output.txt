@@ -1,0 +1,27 @@
+==================================================
+🛡️ SMARTbrain Activity - Universal Skill Auditor v2.0
+==================================================
+
+🔍 Iniciando auditoría en: C:\Users\FL2024\.gemini\antigravity\skills\visual-diagramming-export
+
+
+==================================================
+📋 INVENTARIO DE PROMPTS DETECTADOS EN ARCHIVOS .md
+==================================================
+
+  📄 excalidraw-crafter\SKILL.md
+     └─ [Frontmatter YAML] name: excalidraw-crafter | description: Utiliza este skill cuando el usuario pida dibujar pizarras, diagramas de arquitectura, bocetos UI o esquemas de cajas li
+
+  📄 markmap-generator\SKILL.md
+     └─ [Frontmatter YAML] name: markmap-generator | description: Utiliza este skill cuando necesites crear mapas mentales, brainstormings visuales o esquemas jerárquicos interactivos en
+
+  📄 plantuml-architect\SKILL.md
+     └─ [Frontmatter YAML] name: plantuml-architect | description: Utiliza este skill cuando se solicite crear diagramas UML formales, casos de uso complejos, secuencias, diagramas de cla
+
+  Total: 3 archivo(s) con directivas de prompt.
+
+==================================================
+📊 Resumen: 15 archivos escaneados (11 archivos .md)
+   🚨 Críticos: 2  |  ⚠️ Altos: 0  |  ℹ️ Medios: 2
+
+No ejecutes estos scripts hasta no validar manualmente el código fuente.

@@ -1,0 +1,5 @@
+[Ôä╣´©Å MEDIUM] markmap-generator\scripts\build_map.js -> M├│dulo child_process importado (Ejecuci├│n de comandos del sistema)
+[­ƒÜ¿ CRITICAL] scripts\audit-scan.js -> Uso de eval() detectado (Arbitrary Code Execution)
+[­ƒÜ¿ CRITICAL] scripts\audit-scan.js -> Comandos destructivos en shell detectados (rm -rf, format, del)
+[Ôä╣´©Å MEDIUM] scripts\start-skill.js -> M├│dulo child_process importado (Ejecuci├│n de comandos del sistema)
+ÔØî AUDITOR├ìA FALLIDA: 4 patr├│n(es) sospechoso(s) detectado(s).
